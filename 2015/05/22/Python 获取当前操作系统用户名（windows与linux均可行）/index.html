@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="MucYoung" />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -59,15 +59,16 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MucYoung's Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="12import getpassgetpass.getuser()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python ��ȡ��ǰ����ϵͳ�û�����windows��linux�����У�">
+<meta property="og:url" content="http://yoursite.com/2015/05/22/Python 获取当前操作系统用户名（windows与linux均可行）/index.html">
 <meta property="og:site_name" content="MucYoung's Blog">
-<meta property="og:description">
+<meta property="og:description" content="12import getpassgetpass.getuser()">
+<meta property="og:updated_time" content="2016-04-08T18:45:42.612Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MucYoung's Blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Python ��ȡ��ǰ����ϵͳ�û�����windows��linux�����У�">
+<meta name="twitter:description" content="12import getpassgetpass.getuser()">
 
 
 
@@ -85,7 +86,7 @@
   };
 </script>
 
-  <title> MucYoung's Blog </title>
+  <title> Python ��ȡ��ǰ����ϵͳ�û�����windows��linux�����У� | MucYoung's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -106,9 +107,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -205,9 +204,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -227,118 +226,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2015/06/27/R语言中的set.seed()函数/" itemprop="url">
-                  R语言中的set.seed()函数
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-06-27T01:19:50+08:00" content="2015-06-27">
-              2015-06-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/细枝末节/" itemprop="url" rel="index">
-                    <span itemprop="name">细枝末节</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>计算机并不能产生真正的随机数，如果你不设种子，计算机会用系统时钟来作为种子，如果你要模拟什么的话，每次的随机数都是不一样的，这样就不方便你研究，如果你事先设置了种子，这样每次的随机数都是一样的，便于重现你的研究，也便于其他人检验你的分析结果。<br><a href="http://bbs.pinggu.org/thread-336973-1-1.html" target="_blank" rel="external">http://bbs.pinggu.org/thread-336973-1-1.html</a><br><a href="http://bbs.pinggu.org/thread-2121186-1-1.html" target="_blank" rel="external">http://bbs.pinggu.org/thread-2121186-1-1.html</a><br>如果说函数中出现set.seed(3000)，那就是说程序运行3000次，都是从同一个种子产生的随机数，还是从不同的种子产生的？<br>      另外，这个3000，指的是3000“个”随机数，还是3000“批”（一批里面可能有若干个）随机数呢？<br>     如果我每循环一次，让set.seed(N)中的N增加一个常数，那会有什么作用？<br>et.seed(3000)，不是运行3000次，而是把种子设置为3000。<br>计算机的程序，都是通过确定的算法，根据确定的输入，算出确定的输出。想要得到真正的随机，需要通过外接物理随机数发生器，通过把随机的物理过程转变为随机值，才能实现。因此我们平常使用的计算机的随机数，其实都只是通过算法模拟得到，也就是伪随机。一般采用的办法是线性同余（参见<a href="http://en.wikipedia.org/wiki/Linear_congruential_generator）。" target="_blank" rel="external">http://en.wikipedia.org/wiki/Linear_congruential_generator）。</a><br>X[n+1] = (a * X[n] + c) mod m<br>为简单起见，我取简单的参数（a = 1, c = 3, m = 5），得到一个简单的算式：<br>X[n+1] = (X[n] + 3) mod 5<br>这时，把X[0]视为种子，于是：<br>若种子为0，得到数列：0, 3, 1, 4, 2, 0, …<br>若种子为1，得到数列：1, 4, 2, 0, 3, 1, …<br>若种子为2，得到数列：2, 0, 3, 1, 4, 2, …<br>若种子为3，得到数列：3, 1, 4, 2, 0, 3, …<br>若种子为4，得到数列：4, 2, 0, 3, 1, 4, …<br>对于每个种子，所得到的数列看起来都是随机的（每个数值出现的频率都是相同的）。而一旦种子给定，每次调用随机数函数，函数都会根据上次得到的数列的某个值，计算出数列的下一个值并返回回来。而对于随机浮点数，一般是用随机产生的整数除以最大整数得到。<br>所以，随机数的种子一般只需要在调用随机函数之前设置一次，不建议设置多次。<br>另外，我一直没有搞明白一件事：设置多次种子，在算法上会不会对最终生成的随机数的分布造成影响？不知道有人了解么？<br><a href="http://cos.name/cn/topic/15925" target="_blank" rel="external">http://cos.name/cn/topic/15925</a><br>可以重复得到同一组伪随机数很重要。比如，你的程序有一个很隐蔽的错误，导致你用某些初始值会得到错误的结果，如果你没有设定种子，运行完程序一看结果错了，这时你肯定想再用刚才的数据做一次debug，但永远不可能得到它了。再比如，写论文的时候，你的结果要给别人看，那么一个可重复使用的数据就很重要，你要让别人运行你的code也能得到你的结果就必须要设定种子，等等。<br><a href="http://cos.name/cn/topic/106976" target="_blank" rel="external">http://cos.name/cn/topic/106976</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/05/22/Python 获取当前操作系统用户名（windows与linux均可行）/" itemprop="url">
-                  Python ��ȡ��ǰ����ϵͳ�û�����windows��linux�����У�
-                </a>
+                Python ��ȡ��ǰ����ϵͳ�û�����windows��linux�����У�
               
             
           </h1>
@@ -396,35 +284,52 @@
       
 
       
-        
-          
-            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> getpass</span><br><span class="line">getpass.getuser()</span><br></pre></td></tr></table></figure>
-          
-        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> getpass</span><br><span class="line">getpass.getuser()</span><br></pre></td></tr></table></figure>
       
     </div>
 
     <div>
       
+        
+      
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+        </div>
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/27/R语言中的set.seed()函数/" rel="prev" title="R语言中的set.seed()函数">
+                R语言中的set.seed()函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -432,6 +337,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -451,8 +360,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -529,6 +447,23 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
       
 
     </div>
@@ -620,6 +555,167 @@
 
 
   
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
 
   
 
