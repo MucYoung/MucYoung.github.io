@@ -233,67 +233,6 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/26/hello-world/" class="article-date">
-  	<time datetime="2016-03-26T01:21:36.900Z" itemprop="datePublished">2016-03-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/26/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-cattest" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -311,7 +250,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/27/cattest/">cattest</a>
+      <a class="article-title" href="/2015/06/27/cattest/">R语言中的set.seed()函数</a>
     </h1>
   
 
@@ -320,7 +259,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>计算机并不能产生真正的随机数，如果你不设种子，计算机会用系统时钟来作为种子，如果你要模拟什么的话，每次的随机数都是不一样的，这样就不方便你研究，如果你事先设置了种子，这样每次的随机数都是一样的，便于重现你的研究，也便于其他人检验你的分析结果。<br><a href="http://bbs.pinggu.org/thread-336973-1-1.html" target="_blank" rel="external">http://bbs.pinggu.org/thread-336973-1-1.html</a><br><a href="http://bbs.pinggu.org/thread-2121186-1-1.html" target="_blank" rel="external">http://bbs.pinggu.org/thread-2121186-1-1.html</a><br>如果说函数中出现set.seed(3000)，那就是说程序运行3000次，都是从同一个种子产生的随机数，还是从不同的种子产生的？<br>      另外，这个3000，指的是3000“个”随机数，还是3000“批”（一批里面可能有若干个）随机数呢？<br>     如果我每循环一次，让set.seed(N)中的N增加一个常数，那会有什么作用？<br>et.seed(3000)，不是运行3000次，而是把种子设置为3000。<br>计算机的程序，都是通过确定的算法，根据确定的输入，算出确定的输出。想要得到真正的随机，需要通过外接物理随机数发生器，通过把随机的物理过程转变为随机值，才能实现。因此我们平常使用的计算机的随机数，其实都只是通过算法模拟得到，也就是伪随机。一般采用的办法是线性同余（参见<a href="http://en.wikipedia.org/wiki/Linear_congruential_generator）。" target="_blank" rel="external">http://en.wikipedia.org/wiki/Linear_congruential_generator）。</a><br>X[n+1] = (a * X[n] + c) mod m<br>为简单起见，我取简单的参数（a = 1, c = 3, m = 5），得到一个简单的算式：<br>X[n+1] = (X[n] + 3) mod 5<br>这时，把X[0]视为种子，于是：<br>若种子为0，得到数列：0, 3, 1, 4, 2, 0, …<br>若种子为1，得到数列：1, 4, 2, 0, 3, 1, …<br>若种子为2，得到数列：2, 0, 3, 1, 4, 2, …<br>若种子为3，得到数列：3, 1, 4, 2, 0, 3, …<br>若种子为4，得到数列：4, 2, 0, 3, 1, 4, …<br>对于每个种子，所得到的数列看起来都是随机的（每个数值出现的频率都是相同的）。而一旦种子给定，每次调用随机数函数，函数都会根据上次得到的数列的某个值，计算出数列的下一个值并返回回来。而对于随机浮点数，一般是用随机产生的整数除以最大整数得到。<br>所以，随机数的种子一般只需要在调用随机函数之前设置一次，不建议设置多次。<br>另外，我一直没有搞明白一件事：设置多次种子，在算法上会不会对最终生成的随机数的分布造成影响？不知道有人了解么？<br><a href="http://cos.name/cn/topic/15925" target="_blank" rel="external">http://cos.name/cn/topic/15925</a><br>可以重复得到同一组伪随机数很重要。比如，你的程序有一个很隐蔽的错误，导致你用某些初始值会得到错误的结果，如果你没有设定种子，运行完程序一看结果错了，这时你肯定想再用刚才的数据做一次debug，但永远不可能得到它了。再比如，写论文的时候，你的结果要给别人看，那么一个可重复使用的数据就很重要，你要让别人运行你的code也能得到你的结果就必须要设定种子，等等。<br><a href="http://cos.name/cn/topic/106976" target="_blank" rel="external">http://cos.name/cn/topic/106976</a></p>
+
       
     </div>
     
