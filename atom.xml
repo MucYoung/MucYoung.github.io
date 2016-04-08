@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-08T18:43:37.976Z</updated>
+  <updated>2016-04-08T19:22:25.966Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2015/06/27/R%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84set.seed()%E5%87%BD%E6%95%B0/"/>
     <id>http://yoursite.com/2015/06/27/R语言中的set.seed()函数/</id>
     <published>2015-06-26T17:19:50.000Z</published>
-    <updated>2016-04-08T18:43:37.976Z</updated>
+    <updated>2016-04-08T19:22:25.966Z</updated>
     
     <content type="html">&lt;p&gt;计算机并不能产生真正的随机数，如果你不设种子，计算机会用系统时钟来作为种子，如果你要模拟什么的话，每次的随机数都是不一样的，这样就不方便你研究，如果你事先设置了种子，这样每次的随机数都是一样的，便于重现你的研究，也便于其他人检验你的分析结果。&lt;br&gt;&lt;a href=&quot;http://bbs.pinggu.org/thread-336973-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://bbs.pinggu.org/thread-336973-1-1.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://bbs.pinggu.org/thread-2121186-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://bbs.pinggu.org/thread-2121186-1-1.html&lt;/a&gt;&lt;br&gt;如果说函数中出现set.seed(3000)，那就是说程序运行3000次，都是从同一个种子产生的随机数，还是从不同的种子产生的？&lt;br&gt;      另外，这个3000，指的是3000“个”随机数，还是3000“批”（一批里面可能有若干个）随机数呢？&lt;br&gt;     如果我每循环一次，让set.seed(N)中的N增加一个常数，那会有什么作用？&lt;br&gt;et.seed(3000)，不是运行3000次，而是把种子设置为3000。&lt;br&gt;计算机的程序，都是通过确定的算法，根据确定的输入，算出确定的输出。想要得到真正的随机，需要通过外接物理随机数发生器，通过把随机的物理过程转变为随机值，才能实现。因此我们平常使用的计算机的随机数，其实都只是通过算法模拟得到，也就是伪随机。一般采用的办法是线性同余（参见&lt;a href=&quot;http://en.wikipedia.org/wiki/Linear_congruential_generator）。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://en.wikipedia.org/wiki/Linear_congruential_generator）。&lt;/a&gt;&lt;br&gt;X[n+1] = (a * X[n] + c) mod m&lt;br&gt;为简单起见，我取简单的参数（a = 1, c = 3, m = 5），得到一个简单的算式：&lt;br&gt;X[n+1] = (X[n] + 3) mod 5&lt;br&gt;这时，把X[0]视为种子，于是：&lt;br&gt;若种子为0，得到数列：0, 3, 1, 4, 2, 0, …&lt;br&gt;若种子为1，得到数列：1, 4, 2, 0, 3, 1, …&lt;br&gt;若种子为2，得到数列：2, 0, 3, 1, 4, 2, …&lt;br&gt;若种子为3，得到数列：3, 1, 4, 2, 0, 3, …&lt;br&gt;若种子为4，得到数列：4, 2, 0, 3, 1, 4, …&lt;br&gt;对于每个种子，所得到的数列看起来都是随机的（每个数值出现的频率都是相同的）。而一旦种子给定，每次调用随机数函数，函数都会根据上次得到的数列的某个值，计算出数列的下一个值并返回回来。而对于随机浮点数，一般是用随机产生的整数除以最大整数得到。&lt;br&gt;所以，随机数的种子一般只需要在调用随机函数之前设置一次，不建议设置多次。&lt;br&gt;另外，我一直没有搞明白一件事：设置多次种子，在算法上会不会对最终生成的随机数的分布造成影响？不知道有人了解么？&lt;br&gt;&lt;a href=&quot;http://cos.name/cn/topic/15925&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://cos.name/cn/topic/15925&lt;/a&gt;&lt;br&gt;可以重复得到同一组伪随机数很重要。比如，你的程序有一个很隐蔽的错误，导致你用某些初始值会得到错误的结果，如果你没有设定种子，运行完程序一看结果错了，这时你肯定想再用刚才的数据做一次debug，但永远不可能得到它了。再比如，写论文的时候，你的结果要给别人看，那么一个可重复使用的数据就很重要，你要让别人运行你的code也能得到你的结果就必须要设定种子，等等。&lt;br&gt;&lt;a href=&quot;http://cos.name/cn/topic/106976&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://cos.name/cn/topic/106976&lt;/a&gt;&lt;/p&gt;
 </content>
@@ -43,7 +43,7 @@
     <link href="http://yoursite.com/2015/05/11/Python%20%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%94%A8%E6%88%B7%E5%90%8D%EF%BC%88windows%E4%B8%8Elinux%E5%9D%87%E5%8F%AF%E8%A1%8C%EF%BC%89/"/>
     <id>http://yoursite.com/2015/05/11/Python 获取当前操作系统用户名（windows与linux均可行）/</id>
     <published>2015-05-11T05:22:14.000Z</published>
-    <updated>2016-04-08T19:16:31.303Z</updated>
+    <updated>2016-04-08T19:22:43.971Z</updated>
     
     <content type="html">&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; getpass&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;getpass.getuser()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
     
