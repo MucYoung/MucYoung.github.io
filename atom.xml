@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-26T17:20:16.839Z</updated>
+  <updated>2016-03-26T17:16:51.601Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,24 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>cattest</title>
-    <link href="http://yoursite.com/2016/03/27/cattest/"/>
-    <id>http://yoursite.com/2016/03/27/cattest/</id>
-    <published>2016-03-26T17:19:50.000Z</published>
-    <updated>2016-03-26T17:20:16.839Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="Testing" scheme="http://yoursite.com/categories/Testing/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>tagtest</title>
@@ -75,6 +57,26 @@
     
     </summary>
     
+    
+  </entry>
+  
+  <entry>
+    <title>cattest</title>
+    <link href="http://yoursite.com/2015/06/27/cattest/"/>
+    <id>http://yoursite.com/2015/06/27/cattest/</id>
+    <published>2015-06-26T17:19:50.000Z</published>
+    <updated>2016-04-08T16:19:54.988Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="R语言" scheme="http://yoursite.com/categories/R%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="实用技巧" scheme="http://yoursite.com/tags/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
